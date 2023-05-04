@@ -14,16 +14,26 @@ app.post('/', (req,res) => {
   console.info(`${req.method} request received to submit new note`);
 
   // destructure assignment for items in req.body
-  const newNote = {
-    title,
-    text
-  };
+  const {title, text} = req.body;
 
-  // fetch POST request to server
-})
+  // check for required elements
+  if (title && text) {
+    // save in object
+    const newNote = {
+      title,
+      text
+    };
 
+    readAndAppend(newNote, './db/db.json');
 
-
-
+    const response = {
+      status: 'success',
+      body: newNote
+    };
+    res.json(response);
+  }else{ 
+    res.json('error in posting note')
+  }
+});
 
 module.exports = app;
