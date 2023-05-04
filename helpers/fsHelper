@@ -34,4 +34,39 @@ const readAndAppend = (content, file) => {
   })
 };
 
-module.exports = {readAndAppend, readFromFile};
+// need chosen note to show up on the right side of the note page
+
+// need to retrieve note, delete, rewrite db.  
+// const deleteAndRewrite = (id, parsedDataArr) =>{
+//   fs.readFile(file, 'utf8'), (err, data) => {
+//     if (err) {
+//       console.error(err);
+//     } else{
+//       const parsedDataArr = JSON.parse(data);
+//       removeNote = (value, index, arr) => {
+//         if (value === req.body.id) {
+//           arr.splice(index, 1);
+//           return true;
+//         }
+//         return false;
+//       }    
+//      parsedDataArr.filter(removeNote);
+//       fs.writeFile(destination, JSON.stringify(parsedDataArr, null, 2),
+//         (err) => err ? console.error(err) : console.info(`\nNote removed from ${destination}`)    
+//     }}
+
+
+
+const deleteNote = (destination, content) => {
+  for (i = 0; i < content.length; i++) {
+    let activeNote = content[i];
+    if (activeNote.id == req.params.id) {
+      content.splice(i, 1)
+    }
+  }
+  fs.writeFile(destination, JSON.stringify(content),
+  (err) => err ? console.error(err) : console.info(`\nNote removed from ${destination}`)
+)};
+
+
+module.exports = { readAndAppend, readFromFile, deleteNote };
