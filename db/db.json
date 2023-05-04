@@ -10,5 +10,23 @@
   {
     "title": "here is another one",
     "text": "another test for me\n"
+  },
+  {
+    "title": "Hello hello hello",
+    "text": "a simple greeting note\n"
+  },
+  {
+    "title": "Again",
+    "text": "another time"
+  },
+  {
+    "title": "user ID",
+    "text": "this note should have an ID in the req.body\n",
+    "note_id": "7430"
+  },
+  {
+    "title": "where is ID",
+    "text": "where is the user ID",
+    "note_id": "bfcc"
   }
 ]
