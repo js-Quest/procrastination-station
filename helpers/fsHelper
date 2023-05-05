@@ -12,7 +12,7 @@ const readFromFile = util.promisify(fs.readFile);
 
 const writeToFile = (destination, content) =>
   fs.writeFile(destination, JSON.stringify(content, null, 2),
-  (err) =>  err ? console.error(err) : console.info(`\nData written to ${destination}`)
+    (err) => err ? console.error(err) : console.info(`\nData written to ${destination}`)
   );
 
 /**
@@ -23,10 +23,10 @@ const writeToFile = (destination, content) =>
  */
 
 const readAndAppend = (content, file) => {
-  fs.readFile(file, 'utf8', (err,data) => {
+  fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
-    }else{
+    } else {
       const parsedData = JSON.parse(data);
       parsedData.push(content);
       writeToFile(file, parsedData);
@@ -34,39 +34,21 @@ const readAndAppend = (content, file) => {
   })
 };
 
-// need chosen note to show up on the right side of the note page
+/**
+ *  Function to write data to the JSON file given a destination and some content
+ *  @param {string} destination The file you want to change.
+ *  @param {string} id The ID property of the specific note you want to delete.
+ *  @returns {void} Nothing
+ */
+const deleteNote = (destination, id) => {
+  readFromFile(destination).then((notes) => {
+    var parsedNotes = JSON.parse(notes)
 
-// need to retrieve note, delete, rewrite db.  
-// const deleteAndRewrite = (id, parsedDataArr) =>{
-//   fs.readFile(file, 'utf8'), (err, data) => {
-//     if (err) {
-//       console.error(err);
-//     } else{
-//       const parsedDataArr = JSON.parse(data);
-//       removeNote = (value, index, arr) => {
-//         if (value === req.body.id) {
-//           arr.splice(index, 1);
-//           return true;
-//         }
-//         return false;
-//       }    
-//      parsedDataArr.filter(removeNote);
-//       fs.writeFile(destination, JSON.stringify(parsedDataArr, null, 2),
-//         (err) => err ? console.error(err) : console.info(`\nNote removed from ${destination}`)    
-//     }}
+    var filteredNotes = parsedNotes.filter((note) => note.id !== id)
 
-
-
-const deleteNote = (destination, content) => {
-  for (i = 0; i < content.length; i++) {
-    let activeNote = content[i];
-    if (activeNote.id == req.params.id) {
-      content.splice(i, 1)
-    }
-  }
-  fs.writeFile(destination, JSON.stringify(content),
-  (err) => err ? console.error(err) : console.info(`\nNote removed from ${destination}`)
-)};
-
+    fs.writeFile(destination, JSON.stringify(filteredNotes),
+      (err) => err ? console.error(err) : console.info(`\nNote removed from ${destination}`))
+  })
+}
 
 module.exports = { readAndAppend, readFromFile, deleteNote };

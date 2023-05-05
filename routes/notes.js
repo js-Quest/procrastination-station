@@ -29,21 +29,19 @@ app.post('/', (req,res) => {
 
     readAndAppend(newNote, './db/db.json');
 
-    const response = {
-      status: 'success',
-      body: newNote
-    };
-    res.json(response);
+  
+    res.json('note created');
   }else{ 
     res.json('error in posting note')
   }
 });
 
-app.delete('./', (req,res) => {
+app.delete('/:id', (req,res) => {
   console.info(`${req.method} request received to delete note`);
 
-  deleteNote('./db/db.json', req)
+  deleteNote('./db/db.json', req.params.id)
 
+  res.json('note has been removed')
 })
 
 module.exports = app;
