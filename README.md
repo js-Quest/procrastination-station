@@ -18,11 +18,11 @@
   This app is used to write, store, and delete notes for everyday use.
   
   ## Contributing
-  MDN https://developer.mozilla.org/en-US/
-  w3 Schools https://www.w3schools.com/
-  Stack Overflow https://stackoverflow.com/
-  GeeksForGeeks https://www.geeksforgeeks.org/express-js/
-  ExpressJS docs https://expressjs.com/en/guide/routing.html
+  MDN https://developer.mozilla.org/en-US/  
+  w3 Schools https://www.w3schools.com/  
+  Stack Overflow https://stackoverflow.com/  
+  GeeksForGeeks https://www.geeksforgeeks.org/express-js/  
+  ExpressJS docs https://expressjs.com/en/guide/routing.html  
 
   ## Tests
   N/A
