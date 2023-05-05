@@ -12,7 +12,9 @@
   - [License](#license)
 
   ## Installation
-  Navigate to the URL https://procrastination-station-alpha.herokuapp.com/ and click on  'get started'   Or you can clone the repo, open the root folder, run command 'npm install' in your CLI to install the root packages, run 'node server.js' to connect to your local server, then open your browser to 'localhost:3001' and click on 'get started'
+  Navigate to the URL https://procrastination-station-alpha.herokuapp.com/ and click on  'get started'   
+  
+  Or you can clone the repo, open the root folder, run command 'npm install' in your CLI to install the root packages, run 'node server.js' to connect to your local server, then open your browser to 'localhost:3001' and click on 'get started'
   
 
   ## Usage
